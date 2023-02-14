@@ -1,0 +1,882 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+name: AutoHotkey2
+
+file_extensions:
+  - ahk
+  - ah2
+  - ahk2
+variables:
+  known_functions: |-
+    (?ix:
+      winwaitnotactive | winwaitclose | winwaitactive | winwait | winshow
+    | winsettransparent | winsettranscolor | winsettitle | winsetstyle | winsetregion
+    | winsetexstyle | winsetenabled | winsetalwaysontop | winrestore | winredraw
+    | winmovetop | winmovebottom | winmove | winminimizeallundo | winminimizeall
+    | winminimize | winmaximize | winkill | winhide | wingettransparent
+    | wingettranscolor | wingettitle | wingettext | wingetstyle | wingetprocesspath
+    | wingetprocessname | wingetpos | wingetpid | wingetminmax | wingetlist
+    | wingetidlast | wingetid | wingetexstyle | wingetcount | wingetcontrolshwnd
+    | wingetcontrols | wingetclientpos | wingetclass | winexist | winclose
+    | winactive | winactivatebottom | winactivate | vercompare | varsetstrcapacity
+    | type | trim | traytip | trayseticon | tooltip | thread | tan | sysgetipaddresses
+    | sysget | suspend | substr | strupper | strtitle | strsplit | strreplace | strput
+    | strptr | strlower | strlen | strget | strcompare | statusbarwait | statusbargettext
+    | sqrt | splitpath | soundsetvolume | soundsetmute | soundplay | soundgetvolume
+    | soundgetname | soundgetmute | soundgetinterface | soundbeep | sort | sleep | sin
+    | shutdown | setworkingdir | setwindelay | settitlematchmode | settimer | setstorecapslockmode
+    | setscrolllockstate | setregview | setnumlockstate | setmousedelay | setkeydelay
+    | setdefaultmousespeed | setcontroldelay | setcapslockstate | sendtext | sendplay | sendmode
+    | sendmessage | sendlevel | sendinput | sendevent | send | runwait | runas | run
+    | rtrim | round | reload | regwrite | regread | regexreplace | regexmatch
+    | regdeletekey | regdelete | random | processwaitclose | processwait | processsetpriority
+    | processexist | processclose | postmessage | pixelsearch | pixelgetcolor | persistent
+    | pause | outputdebug | ord | onmessage | onexit | onerror | onclipboardchange | objsetcapacity
+    | objsetbase | objrelease | objptraddref | objptr | objownprops | objownpropcount
+    | objhasownprop | objgetcapacity | objgetbase | objfromptraddref | objfromptr
+    | objbindmethod | objaddref | numput | numget | msgbox | mousemove | mousegetpos
+    | mouseclickdrag | mouseclick | monitorgetworkarea | monitorgetprimary | monitorgetname
+    | monitorgetcount | monitorget | mod | min | menuselect | menufromhandle | max | ltrim
+    | log | loadpicture | ln | listviewgetcontent | listvars | listlines | listhotkeys
+    | keywait | keyhistory | isxdigit | isupper | istime | isspace | issetref | isobject
+    | isnumber | islower | islabel | isinteger | isfloat | isdigit | isalpha | isalnum
+    | instr | installmousehook | installkeybdhook | inputbox | iniwrite | iniread | inidelete
+    | imagesearch | il_destroy | il_create | il_add | hotstring | hotkey | hotifwinnotexist
+    | hotifwinnotactive | hotifwinexist | hotifwinactive | hotif | hasprop | hasmethod | hasbase
+    | guifromhwnd | guictrlfromhwnd | groupdeactivate | groupclose | groupadd | groupactivate
+    | getmethod | getkeyvk | getkeystate | getkeysc | getkeyname | formattime | format
+    | floor | filesettime | filesetattrib | fileselect | filerecycleempty | filerecycle | fileread
+    | fileopen | filemove | fileinstall | filegetversion | filegettime | filegetsize
+    | filegetshortcut | filegetattrib | fileexist | fileencoding | filedelete | filecreateshortcut
+    | filecopy | fileappend | exp | exitapp | exit | envset | envget | editpaste
+    | editgetselectedtext | editgetlinecount | editgetline | editgetcurrentline
+    | editgetcurrentcol | edit | driveunlock | drivesetlabel | driveretract | drivelock
+    | drivegettype | drivegetstatuscd | drivegetstatus | drivegetspacefree | drivegetserial
+    | drivegetlist | drivegetlabel | drivegetfilesystem | drivegetcapacity | driveeject | download
+    | dllcall | dirselect | dirmove | direxist | dirdelete | dircreate | dircopy
+    | detecthiddenwindows | detecthiddentext | datediff | dateadd | critical | cos
+    | coordmode | controlshowdropdown | controlshow | controlsettext | controlsetstyle
+    | controlsetexstyle | controlsetenabled | controlsetchecked | controlsendtext | controlsend
+    | controlmove | controlhidedropdown | controlhide | controlgetvisible | controlgettext
+    | controlgetstyle | controlgetpos | controlgetitems | controlgetindex | controlgethwnd
+    | controlgetfocus | controlgetexstyle | controlgetenabled | controlgetclassnn | controlgetchoice
+    | controlgetchecked | controlfocus | controlfinditem | controldeleteitem | controlclick
+    | controlchoosestring | controlchooseindex | controladditem | comobjvalue | comobjtype
+    | comobjquery | comobjget | comobjfromptr | comobjflags | comobjconnect
+    | comobjactive | comcall | clipwait | click | chr | ceil | caretgetpos
+    | callbackfree | callbackcreate | blockinput | atan | asin | acos | abs
+    )
+  known_variables: |-
+    (?ix:
+      A_YYYY | A_YWeek | A_Year | A_YDay | A_WorkingDir | A_WinDir | A_WinDelay
+    | A_WDay | A_UserName | A_TrayMenu | A_TitleMatchModeSpeed | A_TitleMatchMode
+    | A_TimeSinceThisHotkey | A_TimeSincePriorHotkey | A_TimeIdlePhysical
+    | A_TimeIdleMouse | A_TimeIdleKeyboard | A_TimeIdle | A_TickCount | A_ThisHotkey
+    | A_ThisFunc | A_Temp | A_Tab | A_StoreCapsLockMode | A_StartupCommon
+    | A_Startup | A_StartMenuCommon | A_StartMenu | A_Space | A_SendMode | A_SendLevel
+    | A_Sec | A_ScriptName | A_ScriptHwnd | A_ScriptFullPath | A_ScriptDir
+    | A_ScreenWidth | A_ScreenHeight | A_ScreenDPI | A_RegView | A_PtrSize
+    | A_ProgramsCommon | A_Programs | A_ProgramFiles | A_PriorKey | A_PriorHotkey
+    | A_OSVersion | A_NowUTC | A_Now | A_MyDocuments | A_MSec | A_MouseDelayPlay
+    | A_MouseDelay | A_Mon | A_MMMM | A_MMM | A_MM | A_Min | A_MenuMaskKey
+    | A_MDay | A_MaxHotkeysPerInterval | A_LoopRegType | A_LoopRegTimeModified
+    | A_LoopRegName | A_LoopRegKey | A_LoopReadLine | A_LoopFileTimeModified
+    | A_LoopFileTimeCreated | A_LoopFileTimeAccessed | A_LoopFileSizeMB | A_LoopFileSizeKB
+    | A_LoopFileSize | A_LoopFileShortPath | A_LoopFileShortName | A_LoopFilePath
+    | A_LoopFileName | A_LoopFileFullPath | A_LoopFileExt | A_LoopFileDir
+    | A_LoopFileAttrib | A_LoopField | A_ListLines | A_LineNumber | A_LineFile
+    | A_LastError | A_Language | A_KeyDurationPlay | A_KeyDuration | A_KeyDelayPlay
+    | A_KeyDelay | A_IsSuspended | A_IsPaused | A_IsCritical | A_IsCompiled
+    | A_IsAdmin | A_Is64bitOS | A_InitialWorkingDir | A_Index | A_IconTip
+    | A_IconNumber | A_IconHidden | A_IconFile | A_Hour | A_HotkeyModifierTimeout
+    | A_HotkeyInterval | A_FileEncoding | A_EventInfo | A_EndChar | A_DetectHiddenWindows
+    | A_DetectHiddenText | A_DesktopCommon | A_Desktop | A_DefaultMouseSpeed
+    | A_DDDD | A_DDD | A_DD | A_Cursor | A_CoordModeToolTip | A_CoordModePixel
+    | A_CoordModeMouse | A_CoordModeMenu | A_CoordModeCaret | A_ControlDelay
+    | A_ComSpec | A_ComputerName | A_Clipboard | A_Args | A_AppDataCommon | A_AppData
+    | A_AllowMainWindow | A_AhkVersion | A_AhkPath
+    )
+  hotkey_names: |-
+    (?ix:
+      shift | lshift | rshift | alt | lalt | ralt | control | lcontrol
+    | rcontrol | ctrl | lctrl | rctrl | lwin | rwin | appskey | altdown
+    | altup | shiftdown | shiftup | ctrldown | ctrlup | lwindown | lwinup
+    | rwindown | rwinup | lbutton | rbutton | mbutton | wheelup | wheelleft
+    | wheelright | wheeldown | xbutton1 | xbutton2 | joy1 | joy2 | joy3 | joy4
+    | joy5 | joy6 | joy7 | joy8 | joy9 | joy10 | joy11 | joy12 | joy13 | joy14
+    | joy15 | joy16 | joy17 | joy18 | joy19 | joy20 | joy21 | joy22 | joy23
+    | joy24 | joy25 | joy26 | joy27 | joy28 | joy29 | joy30 | joy31 | joy32
+    | joyx | joyy | joyz | joyr | joyu | joyv | joypov | joyname | joybuttons
+    | joyaxes | joyinfo | space | tab | enter | escape | esc | backspace | bs
+    | delete | del | insert | ins | pgup | pgdn | home | end | up | down | left
+    | right | printscreen | ctrlbreak | pause | scrolllock | capslock | numlock
+    | numpad0 | numpad1 | numpad2 | numpad3 | numpad4 | numpad5 | numpad6
+    | numpad7 | numpad8 | numpad9 | numpadmult | numpadadd | numpadsub | numpaddiv
+    | numpaddot | numpaddel | numpadins | numpadclear | numpadup | numpaddown
+    | numpadleft | numpadright | numpadhome | numpadend | numpadpgup | numpadpgdn
+    | numpadenter | f1 | f2 | f3 | f4 | f5 | f6 | f7 | f8 | f9 | f10 | f11
+    | f12 | f13 | f14 | f15 | f16 | f17 | f18 | f19 | f20 | f21 | f22 | f23
+    | f24 | browser_back | browser_forward | browser_refresh | browser_stop
+    | browser_search | browser_favorites | browser_home | volume_mute
+    | volume_down | volume_up | media_next | media_prev | media_stop
+    | media_play_pause | launch_mail | launch_media | launch_app1 | launch_app2
+    )
+  known_classes: |-
+    (?ix:
+      Any | Array | BoundFunc | Buffer | ClipboardAll | Closure
+    | ComObjArray | ComObject | ComValueRef | ComValue  | Enumerator | Error
+    | File | Float | Func | Gui | IndexError | InputHook | Integer | KeyError
+    | Map | MemberError | MemoryError | MenuBar | Menu | MethodError | Number
+    | Object | OSError | Primitive | PropertyError | RegExMatchInfo | String
+    | TargetError | TimeoutError | TypeError | ValueError | VarRef | ZeroDivisionError
+    )
+  scope_modifier: |-
+    (?ix: local | static | global )
+  flow_keywords: |-
+    (?ix: break | case | catch | continue | else | finally | for | goto
+    | if | loop | return | switch | throw | try | until | while )
+  context_keywords: |-
+    (?ix:
+    | isset | not | or | super | true | unset
+    | and | as | contains | false | in | is )
+  keywords: |-
+    (?x: {{context_keywords}} | {{flow_keywords}} | {{scope_modifier}} )
+  directive_eats_string:  |-
+    (?ix: dllload | errorstdout | hotstring | include | includeagain
+    | notrayicon | requires | singleinstance | warn )
+  directive_eats_expression: |-
+    (?ix: clipboardtimeout | hotif | hotiftimeout | inputlevel| maxthreads
+    | maxthreadsbuffer | maxthreadsperhotkey | suspendexempt | usehook
+    | winactivateforce )
+
+  identifier: (?:[[:alpha:]_][[:alnum:]_]*)
+  identifier_CAPS: (?:(?:[A-Z][0-9A-Z_]*)|(?:_[0-9A-Z]+))
+
+  linestart: '(?=^)'
+
+  illegal_path_chars: (?:\|\/|\:|\*|\?|\"|\<|\>|\|)
+  escape_char: (?:`|\;|\:|\{|n|r|b|t|s|v|a|f|"|')
+  legal_include_path: (?:(?i:\s*\w:\\)?(?:(%)({{known_variables}})(%)|[^{{illegal_path_chars}}](?!`{{escape_char}}))+)
+
+  hotkey_modifier: (?i:[<>$~*!+#^])
+  hotkey_identifier: (?i:`;|[\x21-\x39\x3C-\x7E]|[a-z]\w+|[^\x00-\x7f])
+  hotkey_definition: (?i:((({{hotkey_modifier}}*)?({{hotkey_identifier}}))|({{hotkey_identifier}})\s+(&)\s+~?({{hotkey_identifier}}))(\s+up)?)(::)\s*(['"]|`{)?
+
+
+
+####################################[ MAIN ]####################################
+
+scope: source.ahk2
+contexts:
+  main:
+    - meta_include_prototype: false
+    - match: ''
+      push: script
+
+  prototype:
+    - include: comments
+    - include: literals
+    - match: '^\s*\b{{known_functions}}\b(?!\()'
+      scope: support.function.ahk2
+
+  script:
+    - include: top-level
+    - include: expression
+
+  top-level:
+    # - include: block
+    # - include: group
+    # - include: brackets
+    - include: hotkey           # need
+    - include: directives
+    - include: hotstring        # neeeed
+
+  storage-modifier:
+    - match: \b(?i:global|static|local)\b
+      scope: storage.modifier.ahk2
+
+
+#################################[ EXPRESSION ]#################################
+
+  expression:
+    # - include: literals
+    - include: generic-block
+    - include: generic-group
+    - include: generic-brackets
+    - include: fat-arrows         # need
+    - include: control-keywords   # look at
+    - include: property           # look at
+    - include: storage-modifier
+    - include: function
+    - include: builtin-variables
+    - include: operators
+    # - include: variables-without-CAPS-constants
+    # - include: variables-with-CAPS-constants
+    - include: variables-CAPS
+    - include: variables
+
+  builtin-variables:
+    - match: \b{{known_variables}}\b
+      scope: support.constant.ahk2
+
+  generic-block:
+    - match: \{
+      scope: punctuation.section.block.begin.ahk2
+      push:
+        - meta_scope: meta.block.ahk2
+        - match: \}
+          scope: punctuation.section.block.end.ahk2
+          pop: 1
+        - include: expression
+    - include: stray-brace
+
+  generic-group:
+    - match: \(
+      scope: punctuation.section.group.begin.ahk2
+      push:
+        - meta_scope: meta.group.ahk2
+        - match: \)
+          scope: punctuation.section.group.end.ahk2
+          pop: 1
+        - include: expression
+    - include: stray-group
+
+  generic-brackets:
+    - match: \[
+      scope: punctuation.section.brackets.begin.ahk2
+      push:
+        - meta_scope: meta.brackets.ahk2
+        - match: \]
+          scope: punctuation.section.brackets.end.ahk2
+          pop: 1
+        - include: expression
+    - include: stray-bracket
+
+################################[ ASSIGNMENTS ]#################################
+
+  variables:
+    - match: '\b{{identifier}}\b(?=\.)'
+      scope: entity.name.class.ahk2
+      push:
+        - include: variables
+        - match: ''
+          pop: 1
+    - match: '(\.)({{identifier}}\b)(?=\()'
+      captures:
+        1: punctuation.accessor.dot.ahk2
+        2: entity.name.function.method.ahk2
+      push: function-arguments
+    - match: '(\.)({{identifier}}\b)'
+      captures:
+        1: punctuation.accessor.dot.ahk2
+        # 2: variable.other.member.ahk2
+        # 2: variable.language.ahk2
+        2: storage.type.trait.ahk2
+    - match: '(?=(?<!\.)\b{{identifier}}\b)'
+      push:
+        - meta_scope: variable.ahk2
+        - match: (?<!\.)\b{{identifier}}\b
+          scope: variable.user.generic.ahk2
+          pop: 1
+        - include: pop-out
+
+  variables-CAPS:
+    - match: '(?=(?<!\.)\b{{identifier_CAPS}}\b)'
+      push:
+        - meta_scope: variable.user.ahk2
+        - match: (?<!\.)\b{{identifier_CAPS}}\b
+          scope: entity.name.tag.user.constant.ahk2
+          pop: 1
+        - include: pop-out
+
+#  variables-with-CAPS-constants:
+#    - match: '\b{{identifier}}\b(?=\.)'
+#      scope: entity.name.class.ahk2
+#      push:
+#        - include: variables
+#        - match: ''
+#          pop: 1
+#    - match: '(\.)({{identifier}}\b)(?=\()'
+#      captures:
+#        1: punctuation.accessor.dot.ahk2
+#        2: entity.name.function.method.ahk2
+#      push: function-arguments
+#    - match: '(\.)({{identifier}}\b)'
+#      captures:
+#        1: punctuation.accessor.dot.ahk2
+#        # 2: variable.other.member.ahk2
+#        # 2: variable.language.ahk2
+#        2: storage.type.trait.ahk2
+#    - match: '(?=(?<!\.)\b{{identifier}}\b)'
+#      push:
+#        - meta_scope: variable.user.ahk2
+#        - match: (?<!\.)\b{{identifier_CAPS}}\b
+#          scope: entity.name.tag.user.constant.ahk2
+#          pop: 1
+#        - match: (?<!\.)\b{{identifier}}\b
+#          scope: variable.user.generic.ahk2
+#          pop: 1
+#        - include: pop-out
+
+#  variables-without-CAPS-constants:
+#    - match: '\b{{identifier}}\b(?=\.)'
+#      scope: entity.name.class.ahk2
+#      push:
+#        - include: variables
+#        - match: ''
+#          pop: 1
+#    - match: '(\.)({{identifier}}\b)(?=\()'
+#      captures:
+#        1: punctuation.accessor.dot.ahk2
+#        2: entity.name.function.method.ahk2
+#      push: function-arguments
+#    - match: '(\.)({{identifier}}\b)'
+#      captures:
+#        1: punctuation.accessor.dot.ahk2
+#        # 2: variable.other.member.ahk2
+#        # 2: variable.language.ahk2
+#        2: storage.type.trait.ahk2
+#    - match: '(?=(?<!\.)\b{{identifier}}\b)'
+#      push:
+#        - match: (?<!\.)\b{{identifier}}\b
+#          scope: variable.user.generic.ahk2
+#          pop: 1
+#        - include: pop-out
+
+  operators:
+    - match: ':=|\.=|::|=>|\+=|-=|/=|//=|\|=|\^=|>>=|<<=|\*=|&='
+      scope: keyword.operator.assignment.ahk2
+    - match: '<\=|>\=|\=\=|<|>|\!\=|\?|:|~\=|!|!\=\=|\='
+      scope: keyword.operator.comparison.ahk2
+    - match: \+|\-|\*|\*\*|/|//|%|<<|>>|>>>|&|\||\^|~
+      scope: keyword.operator.arithmetic.ahk2
+    - match: '\b(?i:and|or|not|is|contains)\b'
+      scope: keyword.operator.logical.ahk2
+
+
+################################[ LINE OF CODE ]################################
+
+  control-keywords:
+    - match: \b(?i:if)\b
+      scope: keyword.control.conditional.if.ahk2
+      push:
+        - match: (?=.*\{\s*$)
+          push: if-block
+        - include: else-pop
+    - match: \b(?i:else)\b
+      scope: keyword.control.conditional.else.ahk2
+    - match: \b(?i:for)\b
+      scope: keyword.control.loop.for.ahk2
+    - match: \b(?i:in)\b
+      scope: keyword.control.loop.in.ahk2
+    - match: \b(?i:while)\b
+      scope: keyword.control.loop.while.ahk2
+    - match: \b(?i:loop)\b
+      scope: keyword.control.loop.repeat-until.loop.ahk2
+    - match: \b(?i:until)\b
+      scope: keyword.control.loop.repeat-until.until.ahk2
+    - match: \b(?i:break)\b
+      scope: keyword.control.flow.break.ahk2
+    - match: \b(?i:continue)\b
+      scope: keyword.control.flow.continue.ahk2
+    - match: \b(?i:try)\b
+      scope: keyword.control.exception.try.ahk2
+    - match: \b(?i:catch)\b
+      scope: keyword.control.exception.catch.ahk2
+    - match: \b(?i:finally)\b
+      scope: keyword.control.exception.finally.ahk2
+    - match: \b(?i:switch)\b
+      scope: keyword.control.conditional.switch.ahk2
+    - match: \b(?i:case)\b
+      scope: keyword.control.conditional.case.ahk2
+    - match: \b(?i:default)\b
+      scope: keyword.control.conditional.default.ahk2
+    - match: \b(?i:goto)\b
+      scope: keyword.control.flow.goto.ahk2
+    - match: \b(?i:throw)\b
+      scope: keyword.control.flow.throw.ahk2
+    - match: \b(?i:return)\b
+      scope: keyword.control.flow.return.ahk2
+    - match: \b(?i:as|unset|isset)\b
+      scope: keyword.control
+    - match: \b((?i:class))\s*({{identifier}})\s*((?i:extends)?)
+      captures:
+        1: storage.type.class.ahk2
+        2: entity.name.type.class.ahk2
+        3: storage.type.class.ahk2
+      push: class-block
+
+
+  if-block:
+    - match: (?=\s*\{\s*$)
+      push:
+        - match: '\s*\{\s*$'
+          scope: punctuation.section.braces.begin
+          push:
+          - meta_scope: meta.if.block.ahk2
+          - match: \}
+            scope: punctuation.section.braces.end.ahk2
+            pop: 3
+          - include: expression
+    - include: stray-brace
+
+#############################[ CLASS DECLARATION ]##############################
+
+  class-block:
+    - match: \{
+      scope: punctuation.section.braces.begin
+      push:
+        - meta_scope: meta.class.body.ahk2
+        - match: \}
+          scope: punctuation.section.braces.end.ahk2
+          pop: 2
+        - include: script
+    - include: stray-brace
+
+
+##################################[ FUNCTION ]##################################
+
+  function:
+    - match: '\b({{known_functions}}|super)(?=\()'
+      scope: support.function.ahk2
+      push: function-arguments
+    - match: '\b{{identifier}}(?=\()'
+      scope: entity.name.function.ahk2
+      push:
+        - function-block
+        - function-arguments
+
+  function-arguments:
+    - match: \(
+      scope: punctuation.section.group.begin
+      push:
+        - meta_scope: meta.parameters.ahk2
+        - match: \)
+          scope: punctuation.section.group.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-group
+
+  function-block:
+    - match: (?!.*\{)
+      pop: 1
+    - match: \{
+      scope: punctuation.section.braces.begin
+      push:
+        - meta_scope: meta.function.body.ahk2
+        - match: \}
+          scope: punctuation.section.braces.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-brace
+
+
+##################################[ PROPERTY ]##################################
+
+  property:
+    - match: \b{{identifier}}(?=\[)
+      scope: support.constant.ahk2
+      push:
+        - property-block
+        - property-arguments
+    - match: '(?=\b{{identifier}}\s*(?=\{))'
+      push:
+        - match: \b(?i:get)\b
+          scope: keyword.declaration.getter.ahk2
+          push: getter-block
+        - match: \b(?i:set)\b
+          scope: keyword.declaration.setter.ahk2
+          push: setter-block
+        - match: \b{{identifier}}\b
+          scope: entity.other.attribute-name.ahk2
+          push: property-block
+        - match: ''
+          pop: 1
+    - match: (?=\b{{identifier}}\s*\=\>)
+      push:
+        - match: \b(?i:get|set)\b
+          scope: keyword.declaration.ahk2
+        - match: \b{{identifier}}\b
+          scope: entity.other.attribute-name.ahk2
+        - match: ''
+          pop: 1
+
+  getter-block:
+    - match: \{
+      scope: punctuation.section.braces.begin.ahk2
+      push:
+        - meta_scope: meta.getter.block.ahk2
+        - match: \}
+          scope: punctuation.section.braces.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-brace
+
+  setter-block:
+    - match: \{
+      scope: punctuation.section.braces.begin.ahk2
+      push:
+        - meta_scope: meta.setter.block.ahk2
+        - match: \}
+          scope: punctuation.section.braces.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-brace
+
+  property-block:
+    - match: (?!.*\{)
+      pop: 1
+    - match: \{
+      scope: punctuation.section.braces.begin.ahk2
+      push:
+        - meta_scope: meta.property.block.ahk2
+        - match: \}
+          scope: punctuation.section.braces.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-brace
+
+  property-arguments:
+    - match: \[
+      scope: punctuation.section.brackets.begin.ahk2
+      push:
+        - meta_scope: meta.parameters.property.ahk2
+        - match: \]
+          scope: punctuation.section.brackets.end.ahk2
+          pop: 2
+        - include: expression
+    - include: stray-bracket
+
+
+###########################[ HOTSTRING DECLARATION ]############################
+
+  hotstring:
+    - match: ^\s*(:(?i:\s|\*|\?0?|c[01]?|[pk]\d+|s[ipe]|[brto]0?|z)*:[\x09\x20-\x7E]+?)(::)(.*)$
+      scope: meta.block.hotstring.ahk2 keyword.declaration.hotstring.ahk2
+    - match: ^\s*(:(?i:\s|\*|\?0?|c[01]?|[pk]\d+|s[ipe]|[brto]0?|x|z)*:[\x09\x20-\x7E]+?)(::)
+      scope: meta.block.hotstring.ahk2
+
+
+#############################[ HOTKEY DECLARATION ]#############################
+
+  hotkey:
+    - match: ^\s*({{hotkey_modifier}}*)?({{hotkey_identifier}})(\s+(&)\s+~?({{hotkey_identifier}}))?(?i:\s+(up))?(::)\s*(['"]|`{)?
+      captures:
+        1: punctuation.definition.hotkey.ahk2
+        2: keyword.context.hotkey.ahk2
+        4: punctuation.definition.hotkey.ahk2
+        5: keyword.context.hotkey.ahk2
+        6: keyword.context.hotkey.ahk2
+        7: punctuation.definition.hotkey.ahk2
+        8: keyword.context.hotkey.ahk2
+    
+
+#################################[ SECTIONS ]###################################
+
+
+  block:
+    - match: \{
+      scope: punctuation.section.block.begin.ahk2
+      push:
+        - meta_scope: meta.block.ahk2
+        - match: \}
+          scope: punctuation.section.block.end.ahk2
+          pop: 1
+        - include: script
+    - include: stray-brace
+
+  stray-brace:
+    - match: \}
+      scope: invalid.illegal.stray.brace.ahk2
+
+  group:
+    - match: \(
+      scope: punctuation.section.group.begin.ahk2
+      push:
+        - meta_scope: meta.group.ahk2
+        - match: \)
+          scope: punctuation.section.group.end.ahk2
+          pop: 1
+        - include: script
+    - include: stray-group
+
+  stray-group:
+    - match: \)
+      scope: invalid.illegal.stray.group.ahk2
+
+  brackets:
+    - match: \[
+      scope: punctuation.section.brackets.begin.ahk2
+      push:
+        - meta_scope: meta.brackets.ahk2
+        - match: \]
+          scope: punctuation.section.brackets.end.ahk2
+          pop: 1
+        - include: script
+    - include: stray-bracket
+
+  stray-bracket:
+    - match: \]
+      scope: invalid.illegal.stray.bracket.ahk2
+
+
+################################# [ LITERALS ] #################################
+
+  literals:
+    - include: literal-strings
+    - include: literal-numbers
+    - include: literal-storage-mods
+    - include: literal-constants
+
+  literal-constants:
+    - match: (?=\b(?i:true|false)\b)
+      push:
+        - meta_scope: constant.language.ahk2
+        - match: \b(?i:true|false)\b
+          scope: constant.language.boolean.ahk2
+        - include: pop-out
+    - match: (?=\b(?i:this|thishotkey)\b)
+      push:
+        - meta_scope: constant.language.ahk2
+        - match: \b(?i:this|thishotkey)\b
+          scope: variable.language.hidden.ahk2
+        - include: pop-out
+    - match: (?=\b(?i:value)\b)
+      push:
+        - meta_scope: entity.name.tag.ahk2
+        - match: \b(?i:value)\b
+          scope: constant.language.value.ahk2
+        - include: pop-out
+
+  literal-storage-mods:
+    - match: (?i:(\bglobal\b)|(\blocal\b)|(\bstatic\b))
+      scope: constant.language.ahk2
+      captures:
+        1: storage.modifier.global.ahk2
+        2: storage.modifier.local.ahk2
+        3: storage.modifier.static.ahk2
+
+
+  literal-numbers:
+    # hexadecimal
+    - match: \b(0[xX])(\h+)
+      scope: meta.number.imaginary.hexadecimal.ahk2
+      captures:
+        1: constant.numeric.base.ahk2
+        2: constant.numeric.value.ahk2
+    # floating point
+    - match: \b([1-9]\d*|0)\b
+      scope: meta.number.float.decimal.ahk2 constant.numeric.value.ahk2
+    # integer
+    - match: \b([1-9]\d*|0)\.([1-9]\d*|0)\b
+      scope: meta.number.integer.decimal.ahk2 constant.numeric.value.ahk2
+
+  literal-strings:
+    - match: "'"
+      scope: punctuation.definition.string.begin.ahk2
+      push: literal-single-quoted-string-body
+    - match: '"'
+      scope: punctuation.definition.string.begin.ahk2
+      push: literal-double-quoted-string-body
+
+
+  literal-double-quoted-string-body:
+    - meta_scope: string.quoted.double.ahk2
+    - match: (`{{escape_char}})
+      scope: constant.character.escape.ahk2
+    - match: (\s;|^;)
+      scope: punctuation.definition.comment.ahk2
+      push: comment-line-body
+    - match: (^\s*\()
+      push: literal-double-quoted-continuation-body
+      pop: 1
+    - match: '"'
+      scope: punctuation.definition.string.end.ahk2
+      pop: 1
+
+  literal-single-quoted-string-body:
+    - meta_scope: string.quoted.single.ahk2
+    - match: (`{{escape_char}})
+      scope: constant.character.escape.ahk2
+    - match: (\s;|^;)
+      scope: punctuation.definition.comment.ahk2
+      push: comment-line-body
+    - match: (^\s*\()
+      push: literal-single-quoted-continuation-body
+      pop: 1
+    - match: "'"
+      scope: punctuation.definition.string.end.ahk2
+      pop: 1
+
+  literal-double-quoted-continuation-body:
+    - meta_scope: string.quoted.double.continuation.ahk2
+    - match: (`{{escape_char}})
+      scope: constant.character.escape.ahk2
+    - match: (^\s*\)\")
+      pop: 1
+
+  literal-single-quoted-continuation-body:
+    - meta_scope: string.quoted.single.continuation.ahk2
+    - match: (`{{escape_char}})
+      scope: constant.character.escape.ahk2
+    - match: (^\s*\)\')
+      pop: 1
+
+
+##################################[ COMMENTS ]##################################
+
+  comments:
+    - match: (^\s*(/\*\*)(?=.*\*\*$))
+      captures:
+        2: comment.line.documentation.ahk2 punctuation.definition.comment.documentation.ahk2 constant.character.ahk2
+      push: comment-doc-body-emphasis
+    - match: '^\s*(/\*\*)'
+      captures:
+        1: comment.line.documentation.ahk2 punctuation.definition.comment.documentation.ahk2
+      push: comment-doc-body
+    - match: '(?=\s;|^;)'
+      scope: comment.line.ahk2
+      push: comment-line-body
+    - match: '^\s*/\*'
+      scope: comment.block.ahk2
+      push: comment-block-body
+
+  comment-line-body:
+    - meta_scope: comment.line.semi-colon.ahk2
+    - match: $\n?
+      pop: 1
+    - include: comments_in
+
+  comment-block-body:
+    - meta_scope: comment.block.ahk2
+    - match: '\*/'
+      scope: punctuation.definition.comment.end.ahk2
+      pop: 1
+    - match: (?=^\s*(\*)(?!/))
+      captures:
+        1: punctuation.definition.comment
+    - include: comments_in
+
+  comment-doc-body:
+    - meta_include_prototype: false
+    - meta_content_scope: comment.line.documentation.ahk2
+    - match: '\s*(\*/)'
+      captures:
+        1: comment.line.documentation punctuation.definition.comment.documentation.ahk2
+      pop: 1
+    - include: comments_in
+    - match: '[\w\s]+|.'
+
+  comment-doc-body-emphasis:
+    - meta_include_prototype: false
+    - match: .*$
+      scope: constant.character.ahk2
+      push: comment-doc-body
+      pop: 1
+
+  comments_in:
+    - match: ((?i:@type|@return))\s*((\{)\s*(.+)\s*(\}))
+      captures:
+        1: storage.type.class.ahk2
+        3: punctuation.definition.annotation.begin.ahk
+        4: support.type.ahk2
+        5: punctuation.definition.annotation.end.ahk2
+    - match: ((?i:@param|@var|@prop))\s*((\{)\s*(.+)\s*(\}))\s+(\w+)
+      captures:
+        1: storage.type.class.ahk2
+        3: punctuation.definition.annotation.begin.ahk
+        4: support.type.ahk2
+        5: punctuation.definition.annotation.end.ahk2
+        6: variable.other.ahk2
+    - match: ([;*]*\s*((?i:\btodo\b)((?<tpm>[\p{P}\p{Sm}])\k<tpm>*))([^$\n]*))
+      captures:
+        1: meta.annotation.todo.line.ahk2 markup.bold.ahk2
+        2: meta.annotation.todo.indentifier markup.deleted.ahk2
+        5: meta.annotation.todo.note markup.changed.ahk2
+    - match: '(^[\s\*;]*(\*\-{2}[\-\*]*)(.*))'
+      captures:
+        1: meta.annotation.todo.line.ahk2
+        2: meta.annotation.todo.indentifier markup.changed.ahk2 markup.italic.ahk2
+        3: meta.annotation.todo.note markup.changed.ahk2
+    - match: ([<>\-\=]{2,})*
+      scope: meta.annotation.arrow-sequence.ahk2 markup.inserted.ahk2
+    - match: (^\s\*\*\s+(.*)$)
+      captures:
+        2: markup.warning.ahk2
+
+
+#################################[ DIRECTIVES ]#################################
+
+  directives:
+    - meta_scope: meta.preprocessor.ahk2
+    - match: ^\#(?i:include|includeagain)\b
+      scope: keyword.control.import.include.ahk2
+      push:
+        - match: ((")(<)({{legal_include_path}})(>)("))
+          captures:
+            1: meta.preprocessor.include.library.ahk2
+            2: punctuation.definition.string.begin.ahk2
+            3: punctuation.section.brackets.begin.ahk2
+            4: string.include.ahk2
+            5: punctuation.section.library-name.begin.ahk2
+            6: variable.language.ahk2
+            7: punctuation.section.library-name.end.ahk2
+            8: punctuation.section.brackets.end.ahk2
+            9: punctuation.definition.string.end.ahk2
+        - match: ((\<)({{legal_include_path}})(\>))
+          captures:
+            1: meta.preprocessor.include.library.ahk2
+            2: punctuation.section.brackets.begin.ahk2
+            3: string.include.ahk2
+            4: punctuation.section.library-name.begin.ahk2
+            5: variable.language.ahk2
+            6: punctuation.section.library-name.end.ahk2
+            7: punctuation.section.brackets.end.ahk2
+        - match: ((")({{legal_include_path}})("))
+          captures:
+            1: meta.preprocessor.include.path.ahk2
+            2: punctuation.definition.string.begin.ahk2
+            3: string.include.ahk2
+            4: punctuation.section.library-name.begin.ahk2
+            5: variable.language.ahk2
+            6: punctuation.section.library-name.end.ahk2
+            7: punctuation.definition.string.end.ahk2
+        - match: ({{legal_include_path}})
+          captures:
+            1: meta.preprocessor.include.path.ahk2 string.include.ahk2
+            2: punctuation.section.library-name.begin.ahk2
+            3: variable.language.ahk2
+            4: punctuation.section.library-name.end.ahk2
+        - include: pop-out
+    - match: '^\#{{directive_eats_string}}\b'
+      scope: keyword.control.directive.ahk2
+      push:
+        - match: (.*)(?![`\s];)
+          scope: string.other.directive.ahk2
+        - include: pop-out
+    - match: '^\#{{directive_eats_expression}}\b'
+      scope: keyword.control.directive.ahk2
+      push:
+        - meta_scope: meta.directive.expression.ahk
+        - match: $
+          pop: 2
+        - include: expression
+
+
+###############################[ REGEX FAIRIES ]################################
+
+  step-out:
+    - include: comments
+    - match: $
+      pop: 1
+    - match: \S
+      scope: invalid.illegal.ahk2
+
+  pop-out:
+    - match: ''
+      pop: 1
+
+  else-pop:
+    - match: '(?=\S)'
+      pop: 1
