@@ -1,14 +1,6 @@
-# Sublime-Text-AHK-v2-Syntax-Highlighting 
- 
-SublimeText AHKv2 Syntax Highlighting 
-
-#
-
-Proper SEO format tagging to get this showing up on google.
-
-all credit to https://github.com/gwenreynolds94/SublimeAHKv2Syntax
 
 # Sublime Text Syntax Highlighting Package for Autohotkey Language v2
+ 
 The Sublime Text Syntax Highlighting Package for Autohotkey Language v2 is a powerful tool that allows you to easily write and edit scripts in the Autohotkey language using Sublime Text. This package provides comprehensive syntax highlighting for all of the features and functions of Autohotkey language v2, making it easier than ever to write high-quality code.
 
 # Features
