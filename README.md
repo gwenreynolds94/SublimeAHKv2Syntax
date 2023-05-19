@@ -13,6 +13,11 @@ Easy installation process with clear instructions.
 Supports all of the latest features and functions of Autohotkey language v2.
 Customizable color scheme to fit your preferences.
 
+# Customization
+I highly encourage people to look in the syntax definition and try to familiarize yourself with how it works. It's a very useful ability to be able to make edits to currently existing syntax definitions as well as creating fully custom syntaxes for things like note-taking and todo lists. The way Sublime Text syntax definitions work gives you a *lot* of control if you learn enough. You'll notice, if you compare my definition to other official syntax definitions used by Sublime, that there are features of the language I don't even touch, and I was still able to get to this point (though I plan on revising as I learn more). 
+
+### The best way to learn how to build Sublime Text `.sublime-syntax` definitions *IMO* is to extract the default language packages in Sublime Text and reading the syntax definitions for those. I have some pre-extracted syntax definitions [here](https://github.com/gwenreynolds94/CustomSublimeSyntaxes). Lua, C#, Java, Python, and Go were some of my favorites in the context of writing AHK syntax. They are all very different and use various methods to achieve similar results. It's actually incredibly interesting to go over. Each syntax definitiion has its own distinguishable personality.
+
 # Installation
 To install the Sublime Text Syntax Highlighting Package for Autohotkey Language v2, simply follow these steps:
 
@@ -20,6 +25,7 @@ To install the Sublime Text Syntax Highlighting Package for Autohotkey Language 
 -Open Sublime Text and go to "Preferences" > "Browse Packages".
 -Extract the contents of the downloaded package into the "Packages" folder.
 -Restart Sublime Text.
+
 # Usage
 Once you have installed the package, Sublime Text will automatically recognize and highlight the syntax of any file with the ".ahk" extension.
 
